@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>h1 {color: blue}
+    #para1 {color : green; text-decoration : green}
+.btn {color : red}
+</style>
+    
+</head>
+
+</head>
+<body>
+    <p id="rounds" >Rounds Played </p>
+        <p id ="total">current total </p> 
+    <p id ="average">Current average </p> 
+    <button class="btn" onclick="handelClick1()">Score 1</button>
+   <button class="btn" onclick="handelClick2()"> Score 2</button>
+    <button class="btn" onclick="handelClick3()"> Score 3</button>
+
+
+    
+    <script>
+ let rounds = 0; let total =0; let avrage =0;
+        const handelClick1 = () => {
+            rounds++;
+            total = total+1;
+            avrage =(avrage+1)/2;
+            
+            document.getElementById('rounds').innerText= 'Rounds Played : ' +rounds;
+            document.getElementById('total').innerText= 'current total : ' +total;           
+            document.getElementById('average').innerText= 'current total : ' +avrage;           
+
+        }
+
+
+        const handelClick2 = () => {
+            rounds++;
+            total = total+2;
+            avrage =(avrage+2)/2;
+            
+            document.getElementById('rounds').innerText= 'Rounds Played : ' +rounds;
+            document.getElementById('total').innerText= 'current total : ' +total;           
+            document.getElementById('average').innerText= 'current total : ' +avrage;           
+
+        }
+
+        const handelClick3 = () => {
+            rounds++;
+            total = total+3;
+            avrage =(avrage+3)/2;
+            
+            document.getElementById('rounds').innerText= 'Rounds Played : ' +rounds;
+            document.getElementById('total').innerText= 'current total : ' +total;           
+            document.getElementById('average').innerText= 'current total : ' +avrage;           
+
+        }
+
+
+
+
+        const disableButton = () => {
+            console.log("Clicked2")
+    
+            document.querySelectorAll("button").forEach((button) => button.disabled);
+
+        }
+    </script>
+
+</body>
+
+</html>

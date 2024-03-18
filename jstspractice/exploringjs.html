@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learning JS</h1>
+<script>
+    console.log('hello world')
+let age =32;
+console.log(age);
+console.log(typeof age);
+age ='vinod ';
+console.log(age);
+console.log(typeof age );
+const name='Vinod';
+console.log(name);
+console.log(typeof name);
+const roomsize='22';
+const owner = "Thomas";
+console.log(roomsize);
+console.log(owner);
+const thisYear=2024;
+const nextYear= +thisYear+1;
+console.log(nextYear);
+
+const displaymsg = `${owner} has ${roomsize}`;
+console.log(displaymsg)
+
+const nextnextyear= `${+thisYear+2}`
+console.log(nextnextyear);
+
+console.log(owner.charAt(5));
+console.log(thisYear.length)
+console.log(owner.toUpperCase());
+
+
+// Arrays
+const colors =['red','green','blue'];
+console.log(colors);
+console.log(colors[1]);
+console.log(colors.length)
+
+colors.push('yellow');
+console.log(colors.pop());
+
+console.log(colors);
+
+// Lamda 
+//map
+const upperCasecolor = colors.map((color) => color.toUpperCase());
+
+console.log(upperCasecolor);
+
+const colorfilter = colors.filter((color) => color.includes('r'));
+console.log(colorfilter);
+const colorfilter1 = colors.filter((color) => color.length >= 4);
+console.log(colorfilter1);
+
+const colorIndext = colors.findIndex( (color) => color === 'green');
+console.log(colorIndext)
+
+
+const colorFind = colors.find( (color) => color === 'green');
+console.log(colorFind)
+ 
+// loops 
+
+for (let i =0; i < 20 ;i++)
+console.log(i);
+
+
+for (let i =0; i < colors.length; i++)
+console.log(colors[i]);
+
+for(const color of colors){
+    console.log(color);
+    if(color === 'green')
+    console.log('Color is green');
+}
+
+//Conditional
+// for(const color of colors){
+//     console.log(color);
+//     if(color === 'grenn'){
+//     console.log('Color is green');
+//     }else if(color === 'red'){
+//         console.log("It's Red");
+//     }
+
+// }
+
+for(const color of colors){
+    switch(color){
+        case "red": console.log('It is Red'); 
+        case  'green' : console.log("It is Green");
+        case 'blue' : console.log("It is BLUE");
+        default : console.log("Could not find");
+    }
+}
+
+console.log(colors)
+
+
+const matt ={
+    name :"vinod", age:30,
+    foods : ["Dal","Chanval"],
+    prefrences :[{color:'Orange'},{season : 'basant'}]
+}
+
+console.log(matt.prefrences[1].season);
+
+matt.prefrences.push({taste: 'sweet'});
+console.log(matt);
+
+function sayHello(firstname, surname){
+    return ('Hello '+ firstname + ' '+ surname);
+}
+
+console.log(sayHello('vinod','Yadav'));
+
+// const sayhello = (firstName, secondName) => {
+//     return ('Hello '+ firstName + ' '+ secondName);
+// }
+
+// console.log(sayhello)
+
+</script>
+    
+</body>
+</html>
