@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var _a;
 {
     var age = 20;
     // age ="twenty";
@@ -106,4 +107,45 @@ var __extends = (this && this.__extends) || (function () {
     var accout = { id: 30, balance: 2020, transactions: [100, 200], addBalance: function (newValue) {
             this.balance = this.balance + newValue;
         } };
+    var transactions1 = { date: new Date(), amount: 1000, description: "Deposite1" };
+    var EnhancedTransaction = /** @class */ (function () {
+        function EnhancedTransaction(date, amount, description) {
+            this.date = date;
+            this.amount = amount;
+            this.description = description;
+        }
+        return EnhancedTransaction;
+    }());
+    //COmbining types
+    var x = void 0;
+    var s1 = { name: "vinod", role: 3, id: 24 };
+    // Genrics
+    function convertNumberToArray(x, y) {
+        return [x, y];
+    }
+    var result = convertNumberToArray(10, 20);
+    console.log(result);
+    function convertToArray(x, y) {
+        return [x, y];
+    }
+    var result1 = convertToArray(10, 20);
+    console.log(result1);
+    var result2 = convertToArray('Ten', "Twenty");
+    console.log(result2);
+    var AccountManager = /** @class */ (function () {
+        function AccountManager(account) {
+            this.accont = account;
+        }
+        return AccountManager;
+    }());
+    var checkingAccount = new AccountManager(new CheckBalance(1, 100, [100, 200]));
+    console.log(checkingAccount);
+    ;
+    var ttype = 0 /* TransactionType.Deposit */;
+    console.log(ttype + ' ' + 1 /* TransactionType.Withdrawal */);
+    ;
+    var ttype2 = "D" /* TransactionType2.Deposit */;
+    console.log(ttype2);
+    var user = { name: 'vinod', active: false };
+    console.log(((_a = user.password) === null || _a === void 0 ? void 0 : _a.length) || 'no password');
 }

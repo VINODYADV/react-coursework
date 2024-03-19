@@ -123,4 +123,88 @@ class CheckBalance implements Account{
 let accout:Account= {id:30,balance:2020, transactions: [100,200],addBalance(newValue:number) {
     this.balance= this.balance+newValue;
 }};
+
+type Transactions ={
+date :Date;
+amount:number;
+description:string;
+}
+
+const transactions1 : Transactions ={date: new Date(), amount:1000,description:"Deposite1"};
+
+
+class EnhancedTransaction implements Transactions {
+
+    constructor(public date:Date, public amount:number,public description :string){
+
+    }
+}
+
+//COmbining types
+
+let x :number|String
+
+type Teacher = {name:string,role:number}
+type Employee = {id:number,name:string}
+
+type SchoolEmp = Teacher & Employee
+
+let s1:SchoolEmp = {name:"vinod",role:3,id:24};
+
+//
+
+type type1 = string|number| boolean;
+type type2 = Teacher|number| boolean;
+type type3 = type1 & type2;
+
+// Genrics
+function convertNumberToArray(x:number,y:number):number[]{
+return [x,y];
+}
+
+let result = convertNumberToArray(10,20);
+console.log(result);
+
+function convertToArray<Type>(x:Type,y:Type):Type[]{
+    return [x,y];
+    }
+    
+    let result1 = convertToArray<number>(10,20);
+    console.log(result1);
+    
+
+    let result2 = convertToArray('Ten',"Twenty");
+    console.log(result2);
+    
+class AccountManager<T>{
+accont:T;
+constructor(account:T){
+    this.accont=account;
+}
+}
+
+let checkingAccount = new AccountManager<CheckBalance>(new CheckBalance(1,100,[100,200]));
+
+console.log(checkingAccount);
+
+const enum TransactionType{Deposit,Withdrawal,Transfer};
+
+const ttype:TransactionType = TransactionType.Deposit;
+console.log(ttype +' ' + TransactionType.Withdrawal);
+
+const enum TransactionType2{Deposit='D',Withdrawal='W',Transfer='T'};
+const ttype2:TransactionType2= TransactionType2.Deposit;
+console.log(ttype2);
+
+type User = {name : string, password? :string, active : boolean};
+
+const user:User = {name:'vinod',active:false};
+console.log(user.password?.length ||'no password' )
+
+// const description = document.getElementById('as') as HTMLInputElement;
+// description.value;
+
+
+
+
 }
