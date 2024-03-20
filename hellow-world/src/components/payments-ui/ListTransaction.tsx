@@ -1,31 +1,41 @@
-import { ReactElement } from "react";
+import { ChangeEvent, ReactElement, useState } from "react";
 import { JsxElement } from "typescript";
-
+import { getAllPayments,PaymentType } from "../../DataFunctions";
+import PaymentTableRow from "./PaymentTableRow";
+import { count } from "console";
+import './transaction.css';
 type Transactions = {name:string,amount:number};
 const ListTransaction = () => {
+const payments: PaymentType[] = getAllPayments();
+const contries: string[] = Array.from(new Set(payments.map((payment,index) => payment.country)));
+const [selectedContry, setSelectedCountry] = useState(contries[0]);
+console.log(contries);
+ const filterCountry = (e: ChangeEvent<HTMLSelectElement>):void => {
+    console.log(e.target.value)
+    setSelectedCountry(e.target.value);
+ }
 
     return (
+        <>        
+        <div className="txCountrySelector">
+        <select onChange={filterCountry}>
+            {contries.map((country)  => <option value={country} key={country}>{country}</option>)}
+        </select>
+        </div>
         <table className="transactionsTable">
         <thead>
        <tr>
        
-       <th>Id</th><th>Date</th><th>Country</th><th>Currency</th><th>Amount</th>
+       <th>Id</th><th>Date</th><th>Country</th><th>Currency</th><th>Amount</th><th>Date</th>
        </tr>
         </thead>
         <tbody>
-        <tr>
-       <td>1</td><td>2020-05-22</td><td>USA</td><td>USD</td><td>17.55</td>
-        </tr>
-        <tr>
-        <td>2</td><td>2020-05-
-       23</td><td>UK</td><td>GBP</td><td>36.50</td>
-        </tr>
-        <tr>
-        <td>3</td><td>2020-05-
-       24</td><td>SWE</td><td>EUR</td><td>42.00</td>
-        </tr>
+        {payments.filter(payment => payment.country===selectedContry).
+        map((payment,index) => <PaymentTableRow key={payment.id} {...payment}/>)}
         </tbody>
         </table>
+
+        </>
 );
 }
 
