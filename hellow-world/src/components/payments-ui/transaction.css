@@ -1,0 +1,26 @@
+.txCountrySelector{
+    margin:0 auto;
+    max-width: fit-content;
+}
+
+.transactionsTable {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid #999;
+   }
+   .transactionsTable td, .transactionsTable th {
+    padding: 3px;
+    border: 1px solid #999;
+   } 
+
+   .searchBox {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+   }
+   .searchBox label, input, button {
+    margin: 10px;
+   } 
+   
