@@ -24,3 +24,12 @@
     margin: 10px;
    } 
    
+   .addTransactionsForm {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+}
+
+.addTransactionMessage {
+    color: #f00;
+}

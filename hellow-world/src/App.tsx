@@ -6,14 +6,16 @@ import ListTransaction from './components/payments-ui/ListTransaction';
 import './App.css';
 // import Greeting from './components/Greeting/Greeting';
 import SongList  from './components/Song/SongList';
+import AddTransactions from './components/payments-ui/AddTransactions';
 function App() {
   return (
     <>
     <h1>Hello world</h1>
     {/* <SongList/> */}
-    <PageHeader />
+    {/* <PageHeader />
  <Search />
- <ListTransaction />
+ <ListTransaction /> */}
+ <AddTransactions />
     </>
     
   )

@@ -1,15 +1,32 @@
-import { ChangeEvent, ReactElement, useState } from "react";
+import { ChangeEvent, ReactElement, useEffect, useState } from "react";
 import { JsxElement } from "typescript";
-import { getAllPayments,PaymentType } from "../../DataFunctions";
+import {  getAllPayments,getAllPyametsAxios,PaymentType } from "../../DataFunctions";
 import PaymentTableRow from "./PaymentTableRow";
 import { count } from "console";
 import './transaction.css';
 type Transactions = {name:string,amount:number};
 const ListTransaction = () => {
-const payments: PaymentType[] = getAllPayments();
-const contries: string[] = Array.from(new Set(payments.map((payment,index) => payment.country)));
-const [selectedContry, setSelectedCountry] = useState(contries[0]);
-console.log(contries);
+
+    const [payments,setPayments] = useState<PaymentType[]>([]);
+    const contries: string[] = Array.from(new Set(payments.map((payment,index) => payment.country)));
+
+
+    const [selectedContry, setSelectedCountry] = useState(contries[0]);
+
+    const loadData = () => {
+    //     getAllPayments().then(response => response.json().then(data => {
+    //     setPayments(data);
+    // }));
+
+    getAllPyametsAxios().then(response =>         setPayments(response.data))
+    }
+
+
+useEffect(()=>{loadData()},[])
+ 
+// getAllPaymentRestVersion();
+
+
  const filterCountry = (e: ChangeEvent<HTMLSelectElement>):void => {
     console.log(e.target.value)
     setSelectedCountry(e.target.value);

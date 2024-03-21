@@ -1,13 +1,30 @@
-import { ReactElement } from "react";
+import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
 
-function Search() {
+const Search = (): JSX.Element =>{
+
+    const [searchTerm, setSearchTerm] = useState("");
+const [valid, setValid] = useState<boolean>(false);
+const [touched, setTouched] = useState<boolean>(false);
+    
+const doSearch = (event : FormEvent<HTMLFormElement> ): void=>{
+    event.preventDefault();
+        console.log(searchTerm);
+    } 
+
+    const handelChange = (event :ChangeEvent<HTMLInputElement>) :void=> {
+     console.log('ONchange')
+     setValid(event.target.value.trim().length > 0);  
+     setTouched(true);
+        setSearchTerm(event.target.value);
+    }
     return (
-        <>
-        <label> OrderId </label>
-        <input type="text"></input>
-        <button id="search">Search</button>
-        <select name="countries" id="countries"></select>
-        </>
+        <div className="searchBox">
+        <form onSubmit={doSearch}>
+        <label id="orderId"> OrderId </label>
+        <input id="orderId" type="text" value={searchTerm} className={touched && !valid ? 'searchBoxError' :''} onChange={handelChange}></input>
+        <button id="search" type="submit" disabled={!valid}>Search</button>
+        </form>
+        </div>
     );
 }
 
